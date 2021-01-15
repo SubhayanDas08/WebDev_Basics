@@ -6,7 +6,13 @@
 <p>{{ newPost }}</p> -->
 
 <!--GETTING USER INPUT USING LOCAL REFERENCE-->
-<textarea rows="6" #postInput></textarea>
+<!-- <textarea rows="6" #postInput></textarea>
 <br>
 <button (click)='onAddPost(postInput)'>Save Post</button>
+<p>{{ newPost }}</p> -->
+
+<!--GETTING USER INPUT USING 2 WAY BINDING -->
+<textarea rows="6" [(ngModel)]="enteredValue"></textarea>
+<br>
+<button (click)='onAddPost()'>Save Post</button>
 <p>{{ newPost }}</p>

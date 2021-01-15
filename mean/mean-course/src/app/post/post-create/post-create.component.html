@@ -1,5 +1,12 @@
 <!-- <h2>POST CREATE COMPONENT</h2> -->
 
-<textarea rows="6"></textarea>
+<!-- <textarea rows="6" [value]="newPost"></textarea>     //OUTPUTTING CONTENT
 <br>
-<button (click)='onAddPost()'>Save Post</button>
+<button (click)='onAddPost(postInput)'>Save Post</button>
+<p>{{ newPost }}</p> -->
+
+<!--GETTING USER INPUT USING LOCAL REFERENCE-->
+<textarea rows="6" #postInput></textarea>
+<br>
+<button (click)='onAddPost(postInput)'>Save Post</button>
+<p>{{ newPost }}</p>

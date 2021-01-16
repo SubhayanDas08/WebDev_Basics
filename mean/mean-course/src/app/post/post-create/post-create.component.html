@@ -12,7 +12,7 @@
 <p>{{ newPost }}</p> -->
 
 <!--GETTING USER INPUT USING 2 WAY BINDING -->
-<textarea rows="6" [(ngModel)]="enteredValue"></textarea>
+<textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
 <br>
 <button (click)='onAddPost()'>Save Post</button>
 <p>{{ newPost }}</p>

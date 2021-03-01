@@ -1,7 +1,13 @@
-const tutorial = require('./tutorials');
+//WORKING WITH MODULES
 
-console.log(tutorial);
+// const tutorial = require('./tutorials');
 
-console.log(tutorial.sum(4, 1));
-console.log(tutorial.PI);
-console.log(new tutorial.SomeMathObject());
+// console.log(tutorial);
+
+// console.log(tutorial.sum(4, 1));
+// console.log(tutorial.PI);
+// console.log(new tutorial.SomeMathObject());
+
+// --------------------------
+
+//EVENT EMITTER

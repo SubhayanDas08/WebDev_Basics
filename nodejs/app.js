@@ -16,8 +16,9 @@ const EventEmitter = require('events');
 
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on('abc', () => {
+eventEmitter.on('abc', (num1, num2) => {
     console.log("abc event has been occured. ");
+    console.log('sum is: ' + (num1 + num2));
 });
 
-eventEmitter.emit('abc');
+eventEmitter.emit('abc', 1, 54);

@@ -95,3 +95,13 @@ fs.writeFile('example.txt', 'This is an Example', (err) => {
         console.log('Successfully Created!!');
     }
 });
+
+//read a file
+
+fs.readFile('example.txt', 'utf8', (err, File) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(File);
+    }
+})

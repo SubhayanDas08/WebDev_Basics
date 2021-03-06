@@ -254,16 +254,40 @@
 
 //CREATING A HTTP SERVER USING HTTP MODULE
 
+// const http = require('http');
+
+// const server = http.createServer((req, res) => {
+//     if (req.url === '/') {
+//         res.write('Hello World from NodeJS');
+//         res.end();
+//     } else {
+//         res.write('In another domain');
+//         res.end();
+//     }
+// });
+
+// server.listen('3000');
+
+
+
+// --------------------------
+
+//SERVING STATIC FILES WITH HTTP AND FILE SYSTEM MODULE
+
+
 const http = require('http');
+const fs = require('fs');
 
-const server = http.createServer((req, res) => {
-    if (req.url === '/') {
-        res.write('Hello World from NodeJS');
-        res.end();
-    } else {
-        res.write('In another domain');
-        res.end();
-    }
-});
+http.createServer((req, res) => {
+    const readStream = fs.createReadStream('./static/example.html');
+    res.writeHead(200, { 'Content-Type': 'text/html' });
 
-server.listen('3000');
+    // const readStream = fs.createReadStream('./static/example.json');
+    // res.writeHead(200, { 'Content-Type': 'application/json' });
+
+    // const readStream = fs.createReadStream('./static/example.png');
+    // res.writeHead(200, { 'Content-Type': 'image/png' });
+
+
+    readStream.pipe(res);
+}).listen(3000);

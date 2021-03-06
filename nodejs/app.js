@@ -104,4 +104,13 @@ fs.readFile('example.txt', 'utf8', (err, File) => {
     } else {
         console.log(File);
     }
-})
+});
+
+// renaming a file
+
+fs.rename('example.txt', 'example2.txt', (err) => {
+    if (err)
+        console.log(err);
+    else
+        console.log('Successfully Renamed the File');
+});

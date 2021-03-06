@@ -114,3 +114,21 @@ fs.rename('example.txt', 'example2.txt', (err) => {
     else
         console.log('Successfully Renamed the File');
 });
+
+//append data to a file
+
+fs.appendFile('example2.txt', ' Adding data to the file', (err) => {
+    if (err)
+        console.log(err);
+    else
+        console.log('Successfully Appended data');
+});
+
+//deleting a file
+
+fs.unlink('example2.txt', (err) => {
+    if (err)
+        console.log(err);
+    else
+        console.log('Successfully Deleted the file');
+});

@@ -143,35 +143,74 @@
 
 const fs = require('fs');
 
-//creating a folder
+// //creating a folder
 
-fs.mkdir('tutorial', (err) => {
-    if (err)
-        console.log(err);
-    else
-        console.log('Successfully Created a folder');
-});
+// fs.mkdir('tutorial', (err) => {
+//     if (err)
+//         console.log(err);
+//     else
+//         console.log('Successfully Created a folder');
+// });
 
-//deleting a folder
+// //deleting a folder
 
-fs.rmdir('tutorial', (err) => {
-    if (err)
-        console.log(err);
-    else
-        console.log('Successfully Deleted a folder');
-});
+// fs.rmdir('tutorial', (err) => {
+//     if (err)
+//         console.log(err);
+//     else
+//         console.log('Successfully Deleted a folder');
+// });
 
-//creating a file inside a folder
+// //creating a file inside a folder
 
-fs.mkdir('example', (err) => {
+// fs.mkdir('example', (err) => {
+//     if (err)
+//         console.log(err);
+//     else {
+//         fs.writeFile('./example/a.txt', '1234567890', (err) => {
+//             if (err)
+//                 console.log(err);
+//             else
+//                 console.log('Successfully Added File to a example folder');
+//         });
+//     }
+// });
+
+// //remove a folder with files
+
+// fs.unlink('./example/a.txt', (err) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         fs.rmdir('example', (err) => {
+//             if (err)
+//                 console.log(err);
+//             else
+//                 console.log('Successully Deleted file and the folder');
+//         });
+//     }
+// });
+
+//list out all the files in a folder and delete each file
+
+fs.readdir('example', (err, files) => {
     if (err)
         console.log(err);
     else {
-        fs.writeFile('./example/a.txt', '1234567890', (err) => {
-            if (err)
-                console.log(err);
-            else
-                console.log('Successfully Added File to a example folder');
-        });
+        for (let file in files) {
+            fs.unlink('./example/' + file, (err) => {
+                if (err)
+                    console.log(err);
+                else
+                    console.log('Successfully deleted ' + file);
+            });
+        }
     }
+});
+
+fs.rmdir('example', (err) => {
+    if (err)
+        console.log(err);
+    else
+        console.log('Successully Deleted files and the folder');
 });

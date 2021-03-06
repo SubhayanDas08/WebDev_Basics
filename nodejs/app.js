@@ -64,6 +64,17 @@ let answer = num2 + num1;
 rl.question(`What is ${num1} + ${num2}? \n Answer: `, (userInput) => {
     if (userInput.trim() == answer) {
         rl.close();
+    } else {
+        rl.setPrompt('Incorrect!! Please enter again:');
+        rl.prompt();
+        rl.on('line', (userInput) => {
+            if (userInput.trim() == answer) {
+                rl.close();
+            } else {
+                rl.setPrompt(`The correct was ${answer}. Incorrect!! Please enter again:`);
+                rl.prompt();
+            }
+        })
     }
 });
 

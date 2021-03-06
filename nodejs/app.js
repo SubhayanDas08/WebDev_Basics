@@ -49,35 +49,49 @@
 
 //WORKING WITH READLINE
 
-const readline = require('readline');
+// const readline = require('readline');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
 
-let num1 = Math.floor(Math.random() * 10 + 1);
-let num2 = Math.floor(Math.random() * 10 + 1);
+// let num1 = Math.floor(Math.random() * 10 + 1);
+// let num2 = Math.floor(Math.random() * 10 + 1);
 
-let answer = num2 + num1;
+// let answer = num2 + num1;
 
-rl.question(`What is ${num1} + ${num2}? \n Answer: `, (userInput) => {
-    if (userInput.trim() == answer) {
-        rl.close();
+// rl.question(`What is ${num1} + ${num2}? \n Answer: `, (userInput) => {
+//     if (userInput.trim() == answer) {
+//         rl.close();
+//     } else {
+//         rl.setPrompt('Incorrect!! Please enter again:');
+//         rl.prompt();
+//         rl.on('line', (userInput) => {
+//             if (userInput.trim() == answer) {
+//                 rl.close();
+//             } else {
+//                 rl.setPrompt(`The correct was ${answer}. Incorrect!! Please enter again:`);
+//                 rl.prompt();
+//             }
+//         })
+//     }
+// });
+
+// rl.on('close', () => {
+//     console.log('Correct!!');
+// });
+
+//WORKING WITH FILE SYSTEM MODULE
+
+const fs = require('fs');
+
+//create a file
+
+fs.writeFile('example.txt', 'This is an Example', (err) => {
+    if (err) {
+        console.log(err);
     } else {
-        rl.setPrompt('Incorrect!! Please enter again:');
-        rl.prompt();
-        rl.on('line', (userInput) => {
-            if (userInput.trim() == answer) {
-                rl.close();
-            } else {
-                rl.setPrompt(`The correct was ${answer}. Incorrect!! Please enter again:`);
-                rl.prompt();
-            }
-        })
+        console.log('Successfully Created!!');
     }
-});
-
-rl.on('close', () => {
-    console.log('Correct!!');
 });

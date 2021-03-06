@@ -12,34 +12,61 @@
 
 //EVENT EMITTER
 
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
 
-const eventEmitter = new EventEmitter();
+// const eventEmitter = new EventEmitter();
 
-eventEmitter.on('abc', (num1, num2) => {
-    console.log("abc event has been occured. ");
-    console.log('sum is: ' + (num1 + num2));
+// eventEmitter.on('abc', (num1, num2) => {
+//     console.log("abc event has been occured. ");
+//     console.log('sum is: ' + (num1 + num2));
+// });
+
+// eventEmitter.emit('abc', 1, 54);
+
+// //we can create our own custom object which can use the events module
+
+// class Person extends EventEmitter {
+//     constructor(name) {
+//         super();
+//         this._name = name;
+//     }
+
+//     get name() {
+//         return this._name;
+//     }
+// }
+
+// let Pedro = new Person('Pedro');
+
+// Pedro.on('xyz', () => {
+//     console.log('The Name is: ' + Pedro.name);
+// });
+
+// Pedro.emit('xyz');
+
+
+// --------------------------
+
+//WORKING WITH READLINE
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
 });
 
-eventEmitter.emit('abc', 1, 54);
+let num1 = Math.floor(Math.random() * 10 + 1);
+let num2 = Math.floor(Math.random() * 10 + 1);
 
-//we can create our own custom object which can use the events module
+let answer = num2 + num1;
 
-class Person extends EventEmitter {
-    constructor(name) {
-        super();
-        this._name = name;
+rl.question(`What is ${num1} + ${num2}? \n Answer: `, (userInput) => {
+    if (userInput.trim() == answer) {
+        rl.close();
     }
-
-    get name() {
-        return this._name;
-    }
-}
-
-let Pedro = new Person('Pedro');
-
-Pedro.on('xyz', () => {
-    console.log('The Name is: ' + Pedro.name);
 });
 
-Pedro.emit('xyz');
+rl.on('close', () => {
+    console.log('Correct!!');
+});

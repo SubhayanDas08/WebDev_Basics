@@ -235,15 +235,35 @@
 
 //PIPES AND PIPE CHAINING
 
-const fs = require('fs');
-const zlib = require('zlib');
-const gzip = zlib.createGzip();
+// const fs = require('fs');
+// const zlib = require('zlib');
+// const gzip = zlib.createGzip();
 
-const readStream = fs.createReadStream('./example.txt', 'utf8');
-const writeStream = fs.createWriteStream('example2.txt');
+// const readStream = fs.createReadStream('./example.txt', 'utf8');
+// // const writeStream = fs.createWriteStream('example2.txt');
 
-readStream.pipe(writeStream);
+// // readStream.pipe(writeStream);
 
-const writeStream = fs.createWriteStream('example2.gz');
+// const writeStream = fs.createWriteStream('example2.gz');
 
-readStream.pipe(gzip).pipe(writeStream);
+// readStream.pipe(gzip).pipe(writeStream);
+
+
+
+// --------------------------
+
+//CREATING A HTTP SERVER USING HTTP MODULE
+
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/') {
+        res.write('Hello World from NodeJS');
+        res.end();
+    } else {
+        res.write('In another domain');
+        res.end();
+    }
+});
+
+server.listen('3000');

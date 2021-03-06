@@ -141,9 +141,9 @@
 
 //WORKING WITH THE FILE SYSTEM MODULE PT2
 
-const fs = require('fs');
+// const fs = require('fs');
 
-// //creating a folder
+// // //creating a folder
 
 // fs.mkdir('tutorial', (err) => {
 //     if (err)
@@ -191,26 +191,41 @@ const fs = require('fs');
 //     }
 // });
 
-//list out all the files in a folder and delete each file
+// //list out all the files in a folder and delete each file
 
-fs.readdir('example', (err, files) => {
-    if (err)
-        console.log(err);
-    else {
-        for (let file in files) {
-            fs.unlink('./example/' + file, (err) => {
-                if (err)
-                    console.log(err);
-                else
-                    console.log('Successfully deleted ' + file);
-            });
-        }
-    }
-});
+// fs.readdir('example', (err, files) => {
+//     if (err)
+//         console.log(err);
+//     else {
+//         for (let file in files) {
+//             fs.unlink('./example/' + file, (err) => {
+//                 if (err)
+//                     console.log(err);
+//                 else
+//                     console.log('Successfully deleted ' + file);
+//             });
+//         }
+//     }
+// });
 
-fs.rmdir('example', (err) => {
-    if (err)
-        console.log(err);
-    else
-        console.log('Successully Deleted files and the folder');
+// fs.rmdir('example', (err) => {
+//     if (err)
+//         console.log(err);
+//     else
+//         console.log('Successully Deleted files and the folder');
+// });
+
+
+// --------------------------
+
+//WORKING WITH READABLE AND WRITEABLE STREAMS
+
+const fs = require('fs');
+
+const readStream = fs.createReadStream('./example.txt', 'utf8');
+const writeStream = fs.createWriteStream('example2.txt');
+
+readStream.on('data', (chunk) => {
+    writeStream.write(chunk);
+    console.log('Succeddfully written in example2.txt');
 });

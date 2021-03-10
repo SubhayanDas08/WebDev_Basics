@@ -1,1 +1,5 @@
-var obj = { name: "subhayan", age: 19, sex: "Male" };
+{
+    "name": "subhayan",
+    "age": 19,
+    "sex": "Male"
+}

@@ -36,3 +36,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000);
+
+//HTTP POST REQUEST WITH EXPRESS AND BODY PARSER MODULE
